@@ -1,0 +1,7 @@
+D:\C#\Projects\SimpleCalc\SimpleCalc\ToCheck\bin\Debug\ToCheck.exe.config
+D:\C#\Projects\SimpleCalc\SimpleCalc\ToCheck\bin\Debug\ToCheck.exe
+D:\C#\Projects\SimpleCalc\SimpleCalc\ToCheck\bin\Debug\ToCheck.pdb
+D:\C#\Projects\SimpleCalc\SimpleCalc\ToCheck\obj\Debug\ToCheck.csprojAssemblyReference.cache
+D:\C#\Projects\SimpleCalc\SimpleCalc\ToCheck\obj\Debug\ToCheck.csproj.CoreCompileInputs.cache
+D:\C#\Projects\SimpleCalc\SimpleCalc\ToCheck\obj\Debug\ToCheck.exe
+D:\C#\Projects\SimpleCalc\SimpleCalc\ToCheck\obj\Debug\ToCheck.pdb
