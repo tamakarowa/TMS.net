@@ -1,0 +1,7 @@
+D:\C#\Projects\matrix\Matrix\ForCheck\bin\Debug\ForCheck.exe.config
+D:\C#\Projects\matrix\Matrix\ForCheck\bin\Debug\ForCheck.exe
+D:\C#\Projects\matrix\Matrix\ForCheck\bin\Debug\ForCheck.pdb
+D:\C#\Projects\matrix\Matrix\ForCheck\obj\Debug\ForCheck.csproj.CoreCompileInputs.cache
+D:\C#\Projects\matrix\Matrix\ForCheck\obj\Debug\ForCheck.exe
+D:\C#\Projects\matrix\Matrix\ForCheck\obj\Debug\ForCheck.pdb
+D:\C#\Projects\matrix\Matrix\ForCheck\obj\Debug\ForCheck.csprojAssemblyReference.cache

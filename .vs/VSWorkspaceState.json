@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\matrix",
+    "\\matrix\\Matrix",
+    "\\matrix\\Matrix\\ForCheck",
+    "\\matrix\\Matrix\\Matrix",
+    "\\SimpleCalc"
+  ],
+  "SelectedNode": "\\matrix\\Matrix\\ForCheck\\Program.cs",
+  "PreviewInSolutionExplorer": false
+}
