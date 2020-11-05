@@ -19,138 +19,196 @@ namespace Matrix
             Console.Clear();
 
             //matrix elements
-            int matrixWidth = 1;
-            int matrixLength = 1;
+            long matrixWidth = 1;
+            long matrixLength = 1;
             bool checkWidth;
             bool checkLength;
-            
-            //Welcoming message
-            Console.WriteLine("\tHello User!\n\tWelcome to the Matrix application 1.0! \n\tWith my help you can create a matrix and perform certain actions on it: \n\t\t * to find a number of positive and negative numbers \n\t\t * to sort matrix elements line by line ascending and descending \n\t\t * to inverse matrix elements line by line");
-
-            //repeat Width and Length input
-            bool repeatDimensions = false;
             string choiseAfterDimensions;
 
+            //Welcoming message
+            Console.WriteLine("\tHello User!\n\tWelcome to the Matrix application 1.0! \n\tWith my help you can create a matrix and perform certain actions on it: \n\t\t * to find a number of positive and negative numbers \n\t\t * to sort matrix elements line by line ascending and descending \n\t\t * to inverse matrix elements line by line\n");
+
+            //repeat Width and Length input
+            bool repeatDimensions = true;
             bool repeatMatrixInput = true;
+            bool repatAfterException = true;
+            bool restart = true;
 
             //to reload the matrix
             while (repeatMatrixInput)
             {
-                repeatMatrixInput = false;
+                double[,] matrix = new double[0, 0];
 
-                do
+                //restart of bool
+                repeatMatrixInput = false;
+                repeatDimensions = true;
+                repatAfterException = true;
+                restart = true;
+
+                while (repatAfterException)
                 {
                     //reset of repeating this block of code
-                    repeatDimensions = false;
+                    repatAfterException = false;
 
-                    //matrix Width input
-                    Console.WriteLine("\n\tYou need to select an matrix size. \n\n\t Please type the Length of the matrix with an integer format and not less than one: \n\t (If you want to close the application please type close)");
-
-                    string userSelectWidth = Console.ReadLine();
-
-                    //close the app 
-                    if (userSelectWidth.ToLower() == "close")
+                    while (repeatDimensions)
                     {
-                        Environment.Exit(0);
-                    }
+                        //restart of bool
+                        repeatDimensions = false;
+                        restart = true;
 
-                    //Check for matrix Width
-                    do
-                    {
-                        checkWidth = Int32.TryParse(userSelectWidth, out matrixWidth);
-
-                        if (!checkWidth || (matrixWidth < 1))
+                        while (restart)
                         {
-                            Console.Clear();
-                            Console.WriteLine("\tPlease put correct matrix Length in integer format and not less than one: ");
-                            userSelectWidth = Console.ReadLine();
+                            restart = false;
 
+                            //matrix Width input
+                            Console.WriteLine("\tYou need to select an matrix size. \n\n\t Please type the Length of the matrix with an integer format \n\t(not less than one and not more than 9223372036854775807)\n\t (If you want to close the application please type close)");
+
+                            string userSelectWidth = Console.ReadLine();
+
+                            //close the app 
                             if (userSelectWidth.ToLower() == "close")
                             {
                                 Environment.Exit(0);
                             }
-                        }
-                    }
-                    while (!checkWidth || (matrixWidth < 1));
 
-                    //matrix Length input
-                    Console.Clear();
-                    Console.WriteLine("\tNow please type the Width of the matrix with an integer format and not less than one: \n\t (If you want to close the application please type close)");
+                            //Check for matrix Width
+                            do
+                            {
+                                checkWidth = Int64.TryParse(userSelectWidth, out matrixWidth);
 
-                    string userSelectLength = Console.ReadLine();
+                                if (!checkWidth || (matrixWidth < 1))
+                                {
+                                    Console.Clear();
+                                    Console.WriteLine("\tPlease put correct matrix Length in integer format \n\t(not less than one and not more than 9223372036854775807)");
+                                    userSelectWidth = Console.ReadLine();
 
-                    //close the app 
-                    if (userSelectLength.ToLower() == "close")
-                    {
-                        Environment.Exit(0);
-                    }
+                                    if (userSelectWidth.ToLower() == "close")
+                                    {
+                                        Environment.Exit(0);
+                                    }
+                                }
+                            }
+                            while (!checkWidth || (matrixWidth < 1));
 
-                    //Check for matrix Length
-                    do
-                    {
-                        checkLength = Int32.TryParse(userSelectLength, out matrixLength);
-
-                        if (!checkLength || (matrixLength < 1))
-                        {
+                            //matrix Length input
                             Console.Clear();
-                            Console.WriteLine("\tPlease put correct matrix Width in integer format and not less than one: ");
-                            userSelectLength = Console.ReadLine();
+                            Console.WriteLine("\tNow please type the Width of the matrix with an integer format \n\t(not less than one and not more than 9223372036854775807)\n\t (If you want to close the application please type close)");
 
+                            string userSelectLength = Console.ReadLine();
+
+                            //close the app 
                             if (userSelectLength.ToLower() == "close")
                             {
                                 Environment.Exit(0);
                             }
-                        }
-                    }
-                    while (!checkLength || (matrixLength < 1));
 
-                    //filling the matrix
-                    Console.Clear();
-                    Console.WriteLine($"\tYou select the next dimensions of the Matrix[{matrixWidth},{matrixLength}]. \n\tIf you want to fill the matrix with numbers pleas type anything. \n\tIf you want to redefine the dimensions of the matrix, please type restart. If you want to close the application please type close.");
-                    choiseAfterDimensions = Console.ReadLine();
-
-                    if (choiseAfterDimensions.ToLower() == "close")
-                    {
-                        Environment.Exit(0);
-                    }
-                    else if (choiseAfterDimensions.ToLower() == "restart")
-                    {
-                        Console.Clear();
-                        repeatDimensions = true;
-                    }
-
-                } while (repeatDimensions);
-
-                int matrixVolume = matrixWidth * matrixLength;
-                Console.Clear();
-                Console.WriteLine($"\tTo fill the matrix please enter {matrixVolume} numbers:");
-
-                //Matrix array
-                double[,] matrix = new double[matrixWidth, matrixLength];
-
-                bool matrixElementCheck = true;
-
-                //Matrix input
-                for (int i = 0; i < matrixWidth; i++)
-                {
-                    for (int j = 0; j < matrixLength; j++)
-                    {
-                        Console.Write($"{i + 1} line, {j + 1} number = ");
-                        var userElementInput = Console.ReadLine().Replace(',', '.');
-                        do
-                        {
-                            matrixElementCheck = Double.TryParse(userElementInput, out matrix[i, j]);
-
-                            if (!matrixElementCheck)
+                            //Check for matrix Length
+                            do
                             {
-                                Console.Write($"Please put correct { i + 1} line, { j + 1} number = ");
-                                userElementInput = Console.ReadLine().Replace(',', '.');
+                                checkLength = Int64.TryParse(userSelectLength, out matrixLength);
+
+                                if (!checkLength || (matrixLength < 1))
+                                {
+                                    Console.Clear();
+                                    Console.WriteLine("\tPlease put correct matrix Width in integer format \n\t(not less than one and not more than 9223372036854775807): ");
+                                    userSelectLength = Console.ReadLine();
+
+                                    if (userSelectLength.ToLower() == "close")
+                                    {
+                                        Environment.Exit(0);
+                                    }
+                                }
+                            }
+
+                            while (!checkLength || (matrixLength < 1));
+
+                            //filling the matrix
+                            Console.Clear();
+                            Console.WriteLine($"\tYou select the next dimensions of the Matrix[{matrixWidth},{matrixLength}]. \n\tIf you want to fill the matrix with numbers pleas type anything. \n\tIf you want to redefine the dimensions of the matrix, please type restart. \n\tIf you want to close the application please type close.");
+                            choiseAfterDimensions = Console.ReadLine();
+
+                            if (choiseAfterDimensions.ToLower() == "close")
+                            {
+                                Environment.Exit(0);
+                            }
+                            else if (choiseAfterDimensions.ToLower() == "restart")
+                            {
+                                Console.Clear();
+                                restart = true;
                             }
                         }
-                        while (!matrixElementCheck);
+
+                        Int64 matrixVolume = matrixWidth * matrixLength;
+                        Console.Clear();
+                        Console.WriteLine($"\tTo fill the matrix please enter {matrixVolume} numbers:");
+
+                        try
+                        {
+                            //Matrix array
+                            matrix = new double[matrixWidth, matrixLength];
+                        }
+
+                        catch (OutOfMemoryException ex)
+                        {
+                            Console.Clear();
+                            Console.WriteLine("\n\tYou've inputed too long matrix borders. Your computer cannot calculate it :( \n\tYou'll be returned to the start");
+                            Console.ReadKey();
+                            matrixWidth = 0;
+                            matrixLength = 0;
+                            repatAfterException = true;
+                        }
+
+                        catch (OverflowException ex)
+                        {
+                            Console.Clear();
+                            Console.WriteLine("\n\tYou've inputed too long matrix borders. Your computer cannot calculate it :( \n\tYou'll be returned to the start");
+                            Console.ReadKey();
+                            matrixWidth = 0;
+                            matrixLength = 0;
+                            repatAfterException = true;
+                        }
+
+                        if (!repatAfterException)
+                        {
+                            bool matrixElementCheck = true;
+
+                            try
+                            {
+                                //Matrix input
+                                for (int i = 0; i < matrixWidth; i++)
+                                {
+                                    for (int j = 0; j < matrixLength; j++)
+                                    {
+                                        Console.Write($"{i + 1} line, {j + 1} number = ");
+                                        var userElementInput = Console.ReadLine().Replace(',', '.');
+                                        do
+                                        {
+                                            matrixElementCheck = Double.TryParse(userElementInput, out matrix[i, j]);
+
+                                            if (!matrixElementCheck)
+                                            {
+                                                Console.Write($"Please put correct { i + 1} line, { j + 1} number = ");
+                                                userElementInput = Console.ReadLine().Replace(',', '.');
+                                            }
+                                        }
+                                        while (!matrixElementCheck);
+                                    }
+                                }
+                                Console.WriteLine();
+                            }
+
+                            catch (OutOfMemoryException ex)
+                            {
+                                Console.WriteLine(ex.Message);
+                            }
+                        }
+                        else if (repatAfterException)
+                        {
+                            repeatDimensions = true;
+                            Console.Clear();
+                        }
                     }
                 }
-                Console.WriteLine();
 
                 //Matrix output
                 Console.Clear();
@@ -318,7 +376,7 @@ namespace Matrix
 
                             Console.Clear();
 
-                            int arrayMiddle = matrixLength / 2;
+                            long arrayMiddle = matrixLength / 2;
                             double fake;
 
                             for (int j = 0; j < matrixWidth; j++)
