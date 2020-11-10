@@ -1,0 +1,7 @@
+D:\C#\Projects\TextEditor\TextEditor\TextEditor\bin\Debug\TextEditor.exe.config
+D:\C#\Projects\TextEditor\TextEditor\TextEditor\bin\Debug\TextEditor.exe
+D:\C#\Projects\TextEditor\TextEditor\TextEditor\bin\Debug\TextEditor.pdb
+D:\C#\Projects\TextEditor\TextEditor\TextEditor\obj\Debug\TextEditor.csprojAssemblyReference.cache
+D:\C#\Projects\TextEditor\TextEditor\TextEditor\obj\Debug\TextEditor.csproj.CoreCompileInputs.cache
+D:\C#\Projects\TextEditor\TextEditor\TextEditor\obj\Debug\TextEditor.exe
+D:\C#\Projects\TextEditor\TextEditor\TextEditor\obj\Debug\TextEditor.pdb

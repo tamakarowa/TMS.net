@@ -1,0 +1,7 @@
+D:\C#\Projects\TextEditor\TextEditor\ToChek\bin\Debug\ToChek.exe.config
+D:\C#\Projects\TextEditor\TextEditor\ToChek\bin\Debug\ToChek.exe
+D:\C#\Projects\TextEditor\TextEditor\ToChek\bin\Debug\ToChek.pdb
+D:\C#\Projects\TextEditor\TextEditor\ToChek\obj\Debug\ToChek.csprojAssemblyReference.cache
+D:\C#\Projects\TextEditor\TextEditor\ToChek\obj\Debug\ToChek.csproj.CoreCompileInputs.cache
+D:\C#\Projects\TextEditor\TextEditor\ToChek\obj\Debug\ToChek.exe
+D:\C#\Projects\TextEditor\TextEditor\ToChek\obj\Debug\ToChek.pdb
