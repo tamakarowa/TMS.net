@@ -56,13 +56,11 @@ namespace TextEditor
                                 {
                                     userMainInput = (sr.ReadToEnd());
                                 }
-
                             }
 
                             catch (Exception e)
                             {
                                 Console.WriteLine($"File {path} not found. PLease enter the text into the console.");
-
                             }
 
                             break;
