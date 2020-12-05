@@ -46,41 +46,53 @@ namespace TextEditor
 
                     string fileOrConsole = Console.ReadLine();
 
-                    if (fileOrConsole == "1")
-                    {
-                        try
-                        {
-                            using (StreamReader sr = new StreamReader(path))
+                    switch (fileOrConsole)
+                    { 
+                        case "1":
+
+                            try
                             {
-                                userMainInput = (sr.ReadToEnd());
+                                using (StreamReader sr = new StreamReader(path))
+                                {
+                                    userMainInput = (sr.ReadToEnd());
+                                }
+
                             }
 
-                        }
-                        catch (Exception e)
-                        {
-                            Console.WriteLine($"File {path} not found. PLease enter the text into the console.");
+                            catch (Exception e)
+                            {
+                                Console.WriteLine($"File {path} not found. PLease enter the text into the console.");
 
-                        }
-                    }
+                            }
 
-                    else if (fileOrConsole == "2")
-                    {
-                        Console.Clear();
-                        Console.WriteLine("\tPlease enter the line you want to work with (not allowed to contain Cyrillic):");
-                        userMainInput = Console.ReadLine();
-                    }
+                            break;
 
-                    else
-                    {
-                        Console.WriteLine("Your input was wrong. Please input a correct key");
-                        wayToWorkWithText = true;
-                    }
+                        case "2":
+
+                            Console.Clear();
+                            Console.WriteLine("\tPlease enter the line you want to work with (not allowed to contain Cyrillic):");
+                            userMainInput = Console.ReadLine();
+
+                            break;
+
+                        default:
+
+                            Console.Clear();
+                            Console.WriteLine("\tYour input was wrong. Please input a correct key\n");
+                            wayToWorkWithText = true;
+                            break;
+                    }         
 
                     //Reges for Cyrillic unput
-                    string reg = @"\P{IsBasicLatin}";
+                    string reg = @"\P{IsBasicLatin}"; 
 
                     //if line contain Cyrillic - true
-                    bool res = Regex.Match(userMainInput, reg).Success;
+                    bool res = false; 
+
+                    if (wayToWorkWithText == false)
+                    {
+                        res = Regex.Match(userMainInput, reg).Success;
+                    }                        
 
                     //error message for wrong input
                     if (res)
@@ -392,17 +404,35 @@ namespace TextEditor
 
                             Console.WriteLine($"\tWord(s) starting and ending with {searchInput}:");
 
+                            int worldCounter = 0; 
+
                             foreach (var item in lineToWordArr)
+                            {                               
+                                    if ((item.StartsWith(searchInput.ToUpper())) && (item.EndsWith(searchInput.ToUpper())))
+                                    {
+                                        Console.WriteLine($"\t{item} ");
+                                        worldCounter++; 
+                                    }
+                                    else if ((item.StartsWith(searchInput.ToUpper())) && (item.EndsWith(searchInput.ToLower())))
+                                    {
+                                        Console.WriteLine($"\t{item} ");
+                                        worldCounter++;
+                                    }
+                                    else if ((item.StartsWith(searchInput.ToLower())) && (item.EndsWith(searchInput.ToLower())))
+                                    {
+                                        Console.WriteLine($"\t{item} ");
+                                        worldCounter++;
+                                    }
+                                    else if ((item.StartsWith(searchInput.ToLower())) && (item.EndsWith(searchInput.ToUpper())))
+                                    {
+                                        Console.WriteLine($"\t{item} ");
+                                        worldCounter++;
+                                    }                                                             
+                            }
+
+                            if (worldCounter == 0)
                             {
-                                if ((item.StartsWith(searchInput)) && (item.EndsWith(searchInput)))
-                                {
-                                    Console.WriteLine($"\t{item} ");
-                                }
-                                else
-                                {
-                                    Console.WriteLine("\n\tThere are no such words in the line.");
-                                    break;
-                                }
+                                Console.WriteLine("\n\tThere are no such words in the line.");
                             }
                             
                             returnToMainMenu = true;
