@@ -14,6 +14,10 @@ namespace TextEditor
     {
         static void Main(string[] args)
         {
+            int bufSize = 102400;
+            Stream inStream = Console.OpenStandardInput(bufSize);
+            Console.SetIn(new StreamReader(inStream, Console.InputEncoding, false, bufSize));
+
             //set background and Foreground color
             Console.BackgroundColor = ConsoleColor.White;
             Console.ForegroundColor = ConsoleColor.Black;
