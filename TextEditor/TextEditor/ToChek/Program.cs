@@ -11,32 +11,39 @@ namespace ToChek
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            string path = @"D:\C#\Projects\TextEditor\NewFile.txt";
+            var y = Invitation();
 
-            try
-            {
-                using (StreamReader sr = new StreamReader(path))
-                {
-                    Console.WriteLine(sr.ReadToEnd());
-                }
-              
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine($"File {path} not found. PLease enter the text into the console.");
-
-            }
-
-
-
-
-
-
-
-            Console.ReadLine();
-            
+            Console.ReadLine();            
         }
+
+        public static string Invitation ()
+        {
+            Text("PmPam");
+            Console.WriteLine("Hi");
+            var x = Console.ReadLine();
+            return x;
+        }
+
+        static void Text (string message)
+        {
+            Console.WriteLine($"message");
+        }
+
+        static void ConvertToNumberAndCheck (string y)
+        {
+            int value;
+
+            if (int.TryParse(y, out value))
+            {
+                Console.WriteLine($"You've entered {y}");
+            }
+            else
+            {
+                Console.WriteLine("Wrong input!");
+            }
+        }
+        
     }
 }

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Matrix", "Matrix\Matrix.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForCheck", "ForCheck\ForCheck.csproj", "{381346B6-4357-4205-9659-6F7DE04C0C63}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatrixRefactoring", "MatrixRefactoring\MatrixRefactoring.csproj", "{2259333B-AE69-4F2B-8E8F-F18586753F82}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{381346B6-4357-4205-9659-6F7DE04C0C63}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{381346B6-4357-4205-9659-6F7DE04C0C63}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{381346B6-4357-4205-9659-6F7DE04C0C63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2259333B-AE69-4F2B-8E8F-F18586753F82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2259333B-AE69-4F2B-8E8F-F18586753F82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2259333B-AE69-4F2B-8E8F-F18586753F82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2259333B-AE69-4F2B-8E8F-F18586753F82}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
