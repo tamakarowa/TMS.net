@@ -33,7 +33,9 @@ namespace ForCheck
             while (repeatMatrixInput)
 
             {
+                firstRepeat = true;
                 repeatMatrixInput = false;
+                bool repeatMatrixAction = true;
 
                 WelcomingMessage();
 
@@ -71,16 +73,14 @@ namespace ForCheck
                 Console.WriteLine("\tYour've entered the matrix:");
 
                 MatrixOutput(matrixWidth, matrixLength, matrix);
-
-                bool repeatMatrixAction = true;
-
+               
                 while (repeatMatrixAction)
                 {
                     repeatMatrixAction = false;
 
                     Console.Clear();
 
-                    Console.WriteLine("\n\tSelect the action you want to do with the matrix: \n\t\t * Type positive or negative to find a number of positive and negative numbers \n\t\t * Type ascending or descending to sort matrix elements line by line ascending and descending \n\t\t * Type inverse to inverse matrix elements line by line \n\t\t * Type close to close an application");
+                    Console.WriteLine("\n\tSelect an action you want to do with the matrix: \n\t\t * positive - to find a number of positive numbers \n\t\t * negative - to find a number of negative numbers \n\t\t * ascending - to to sort matrix elements line by line ascending \n\t\t * descending to sort matrix elements line by line descending \n\t\t * inverse - to inverse matrix elements line by line \n\t\t * repeat - to repeat matrix input \n\t\t * close - to close an application");
                     string matrixOperation = Console.ReadLine().ToUpper();
 
                     switch (matrixOperation)
@@ -98,6 +98,8 @@ namespace ForCheck
                             positive = Positive(matrixWidth, matrixLength, matrix);
 
                             Console.WriteLine($"\n\tNumber of positive numbers: {positive} \n");
+
+                            MessageToReturn();
 
                             Console.ReadKey();
 
@@ -119,6 +121,8 @@ namespace ForCheck
 
                             Console.WriteLine($"\n\tNumber of negative numbers: {negative} \n");
 
+                            MessageToReturn();
+
                             Console.ReadKey();
 
                             repeatMatrixAction = true;
@@ -130,6 +134,8 @@ namespace ForCheck
                             Console.Clear();
 
                             AscendingSort(matrixWidth, matrixLength, matrix);
+
+                            MessageToReturn();
 
                             Console.ReadKey();
 
@@ -143,6 +149,8 @@ namespace ForCheck
 
                             DescendingSort(matrixWidth, matrixLength, matrix);
 
+                            MessageToReturn();
+
                             Console.ReadKey();
 
                             repeatMatrixAction = true;
@@ -154,6 +162,8 @@ namespace ForCheck
                             Console.Clear();
 
                             Inverse(matrixWidth, matrixLength, matrix);
+
+                            MessageToReturn();
 
                             Console.ReadKey();
 
@@ -374,7 +384,6 @@ namespace ForCheck
             }
 
             return matrix;
-
         }
 
         //matrix output
@@ -514,6 +523,11 @@ namespace ForCheck
                 }
                 Console.WriteLine();
             }
+        }
+
+        static void MessageToReturn()
+        {
+            Console.WriteLine("\n\tType anything to return chose another action for matrix");
         }
     }
 }
