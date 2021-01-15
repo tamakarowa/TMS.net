@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Configuration;
 
 namespace ProductInventoryProject
 {
@@ -14,7 +15,7 @@ namespace ProductInventoryProject
             int id;
             int number;
 
-            _price = price =1.16;
+            _price = price = double.Parse(ConfigurationManager.AppSettings.Get("applePrice"));
             _id = id =1;
             _number = number =0;
         }

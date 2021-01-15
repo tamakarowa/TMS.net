@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Configuration;
 
 namespace ProductInventoryProject
 {
@@ -14,7 +15,7 @@ namespace ProductInventoryProject
             int id;
             int number;
 
-            _price = price =3.65;
+            _price = price = double.Parse(ConfigurationManager.AppSettings.Get("grapePrice"));
             _id = id =4;
             _number = number =0;
         }

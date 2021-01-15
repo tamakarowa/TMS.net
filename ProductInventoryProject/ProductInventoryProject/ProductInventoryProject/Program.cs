@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,8 @@ namespace ProductInventoryProject
         static void Main(string[] args)
         {
             //remove localization
-            System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("US");
+            string appLocale = ConfigurationManager.AppSettings.Get("appLocale");
+            System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo(appLocale);
 
             //set background and Foreground color
             Console.BackgroundColor = ConsoleColor.White;
